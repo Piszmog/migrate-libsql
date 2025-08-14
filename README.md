@@ -11,10 +11,11 @@ A simple command-line tool for running database migrations on LibSQL/Turso datab
 
 ## Installation
 
-Download the latest binary from the [releases page](https://github.com/your-username/migrate-libsql/releases) or build from source:
+Download the latest binary from the [releases page](https://github.com/Piszmog/migrate-libsql/releases) or build from source:
 
 ```bash
-go install github.com/your-username/migrate-libsql@latest
+go install github.com/Piszmog/migrate-libsql@latest
+go get -tool github.com/Piszmog/migrate-libsql
 ```
 
 ## Usage
@@ -58,12 +59,3 @@ migrations/
 └── 002_add_users_table.down.sql
 ```
 
-## Building
-
-```bash
-go build -o migrate-libsql .
-```
-
-## License
-
-MIT
