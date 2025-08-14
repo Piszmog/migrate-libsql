@@ -4,7 +4,7 @@
 - **Build**: `go build .` or `go install`
 - **Test**: `go test -race ./...` (run all tests with race detection)
 - **Lint**: `golangci-lint run` (uses .golangci.yml config)
-- **Format**: `go fmt ./...`
+- **Format**: `goimports -w .` and `gofmt -w .`
 - **Download deps**: `go mod download`
 
 ## Code Style Guidelines
