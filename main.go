@@ -103,7 +103,7 @@ func newMigration(db *sql.DB, migrations fs.FS) (*migrate.Migrate, error) {
 		return nil, fmt.Errorf("failed to create database driver: %w", err)
 	}
 
-	iofsDriver, err := iofs.New(migrations, "migrations")
+	iofsDriver, err := iofs.New(migrations, ".")
 	if err != nil {
 		return nil, fmt.Errorf("failed to create iofs: %w", err)
 	}
