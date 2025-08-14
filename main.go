@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"database/sql"
+	"errors"
 	"flag"
 	"fmt"
 	"io/fs"
@@ -64,11 +65,15 @@ func main() {
 	switch *direction {
 	case "up":
 		err = m.Up()
-		if err != nil {
+		if err != nil && !errors.Is(err, migrate.ErrNoChange) {
 			fmt.Printf("Error: failed to migrate up: %+v\n", err)
 			return
 		}
-		fmt.Println("Migration up completed successfully")
+		if errors.Is(err, migrate.ErrNoChange) {
+			fmt.Println("Database is already up to date")
+		} else {
+			fmt.Println("Migration up completed successfully")
+		}
 	case "down":
 		if *steps <= 0 {
 			fmt.Printf("Error: steps must be greater than 0 for down migration\n")
