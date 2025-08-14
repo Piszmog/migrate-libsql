@@ -23,16 +23,15 @@ go install github.com/your-username/migrate-libsql@latest
 migrate-libsql -url <libsql-url> -token <auth-token> -migrations <migrations-dir> [options]
 ```
 
-### Required Flags
+### Flags
 
-- `-url`: LibSQL database URL (e.g., `libsql://database-name.turso.io`)
-- `-token`: LibSQL authentication token
-- `-migrations`: Path to directory containing migration files
-
-### Optional Flags
-
-- `-direction`: Migration direction, `up` (default) or `down`
-- `-steps`: Number of steps for down migration (default: 1)
+| Flag | Default | Required | Description |
+|------|---------|----------|-------------|
+| `-url` | - | ✅ | LibSQL database URL (e.g., `libsql://database-name.turso.io`) |
+| `-token` | - | ✅ | LibSQL authentication token |
+| `-migrations` | - | ✅ | Path to directory containing migration files |
+| `-direction` | `up` | ❌ | Migration direction: `up` (apply) or `down` (rollback) |
+| `-steps` | `1` | ❌ | Number of steps for down migration |
 
 ### Examples
 
